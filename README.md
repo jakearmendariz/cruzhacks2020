@@ -1,5 +1,5 @@
 # cruzhacks2020
-Jake Armendariz
-Edward Chan
-Selina Guan
-
+Jake Armendariz,
+Edward Chan,
+Selina Guan,
+Samuel Schmidt
