@@ -1,10 +1,17 @@
 from flask import Flask, render_template, url_for, request, redirect
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import pymongo
+from pymongo import MongoClient
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-db = SQLAlchemy(app)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+#db = SQLAlchemy(app)
+cluster = MongoClient("mongodb+srv://readAndWrite:uJkfM1V7bi3xT13k@cluster0-ksxj2.gcp.mongodb.net/User?retryWrites=true&w=majority")
+db = cluster["CharityDB"]
+collection = db["User"]
+
 
 class Todo(db.Model):
   id = db.Column(db.Integer, primary_key=True)
