@@ -4,7 +4,7 @@ from app import app
 
 @app.route('/')
 def index():
-    return '<h1>You are at the index!</h1>'
+    return '../templates/index.html'
 
 @app.route('/wrongPlace')
 def wrongPlace():
