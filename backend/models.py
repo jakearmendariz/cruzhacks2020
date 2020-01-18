@@ -1,20 +1,40 @@
 from app import mongo
-from mongoengine import StringField
 
 class User(dict):
     """
     Basic user object
     """
-    id = ""
-    name = StringField()
-    email = StringField()
+    name = ""
+    email = ""
     passwordHash = ""
 
+    def __init__(self,
+                 name,
+                 email,
+                 passwordHash):
+
+        self.name = name
+        self.email = email
+        self.passwordHash = passwordHash
+
+    # simply return the response of the created login
     def create(self):
-        pass
+        return mongo.db.User.insert_one({
+            'firstName': self.firstName,
+            'middleName': self.middleName,
+            'lastName': self.lastName,
+            'email': self.email,
+            'passwordHash': self.passwordHash
+        })
+
+    # read in the response 
     def read(self):
         pass
+
+    # update the existing user
     def update(self):
         pass
+    
+    # delete a user
     def delete(self):
-        pas
+        pass
