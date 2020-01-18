@@ -6,10 +6,11 @@ from os import environ
 
 app = Flask(__name__)
 
-app.config.from_envvar('APP_SETTINGS')
+app.config.from_pyfile('config.py')
 mongo = PyMongo(app)
 
 from views import *
+from models import *
 
 if __name__ == '__main__':
     app.run()
