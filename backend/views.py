@@ -2,16 +2,25 @@
 
 from app import app
 from models import *
+from flask import Flask, render_template
 
 # have the mother fucking frontend redirect to this url and the get inserted into the db
-@app.route('/')
-def index():
-    user = User("Samuel Schmidt",
-                 "sam@somewhere.com",
-                 "asdf")
-    
-    return 'Created user with id of {0}'.format(user.create())
+@app.route('/<string:page_name>/')
+def render_static(page_name):
+    return render_template('%s.html' % page_name)
+ 
+ 
+#@app.route('/')
+#def index():
+#    return '../templates/index.html'
 
-@app.route('/wrongPlace')
-def wrongPlace():
-    return 'You aren\'t in the correct place'
+
+@app.route('/signup', methods=['POST'])
+def createUser():
+    name = request.form['name']
+    username = request.form['username']
+    password = request.form['password']
+    user = User(name, username, password)
+    user.create()
+    print("FUCK SOCIETY AND THEIR GODDAM RULES")
+    return name

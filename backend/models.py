@@ -20,9 +20,7 @@ class User(dict):
     # simply return the response of the created login
     def create(self):
         return mongo.db.User.insert_one({
-            'firstName': self.firstName,
-            'middleName': self.middleName,
-            'lastName': self.lastName,
+            'name': self.name,
             'email': self.email,
             'passwordHash': self.passwordHash
         })
