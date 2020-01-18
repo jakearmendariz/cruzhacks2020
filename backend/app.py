@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_pymongo import PyMongo
 
 app = Flask(__name__)
@@ -14,4 +14,4 @@ mongo.db.user.insert_one({
 
 @app.route("/")
 def home_page():
-    return 'Hello World!'
+    return render_template("index.html")
