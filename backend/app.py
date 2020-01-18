@@ -1,6 +1,6 @@
 # main app sequence, how it's going to start
 
-from flask import Flask, render_template
+from flask import Flask
 from flask_pymongo import PyMongo
 from os import environ
 
@@ -14,7 +14,3 @@ from models import *
 
 if __name__ == '__main__':
     app.run()
-    
-@app.route('/<string:page_name>/')
-def render_static(page_name):
-    return render_template('%s.html' % page_name)
