@@ -21,24 +21,27 @@ from wtforms.validators import DataRequired, Length
 
 @app.route('/charity/<string:name>')
 def displayCharity(name):
+    name = name.replace("+", " ")
     cursor = mongo.db.Charity.find_one_or_404({'name': name})
-    
-    #nameis = cursor.name
-   # email = cursor.email
-    #return 'my name is ' + nameis + ", " + email
-    return f'''
-        <h1>{cursor['name']}</h1>
-        <p>{cursor['email']}</p>
-        <p>{cursor['website']}</p>
-        <p>Who are we?<br>{cursor['Description']}</p>
-    '''
+    name = name.title()
+    return f'''<h1>{name}</h1>
+                <h3>Find us at:{cursor['website']}</h3>
+                <p>{cursor['description']}</p>
+                <p>If you want to get involved. Email us at {cursor['email']}</p>
+                '''
+#    return f'''
+#        <h1>{cursor['name']}</h1>
+#        <p>{cursor['email']}</p>
+#        <p>{cursor['website']}</p>
+#        <p>Who are we?<br>{cursor['Description']}</p>
+#    '''
 
 
 @app.route('/<string:page_name>/', methods=['POST'])
 def renderPosts(page_name):
     if page_name == 'addSuccess':
         result = request.form
-        charity = Charity(result.get('name'),
+        charity = Charity(result.get('name').lower(),
                           result.get('email'),
                           result.get('website'),
                           result.get('description'),
