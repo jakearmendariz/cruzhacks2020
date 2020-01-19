@@ -3,11 +3,7 @@
 from app import app, mongo
 from models import *
 from forms import *
-<<<<<<< HEAD
 from flask import Flask, render_template, request, url_for, redirect
-=======
-from flask import Flask, render_template, request, redirect, url_for
->>>>>>> e6b546acaef283be4e2134be4d266fca0efab27d
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextField, SubmitField
@@ -41,8 +37,6 @@ def displayCharity(name):
 @app.route('/<string:page_name>/', methods=['POST'])
 def renderPosts(page_name):
     if page_name == 'addSuccess':
-
-<<<<<<< HEAD
         result = request.form
         charity = Charity(result.get('name'),
                           result.get('email'),
@@ -52,26 +46,17 @@ def renderPosts(page_name):
         charity.dbInsert()
         return redirect(url_for('index'))
     if page_name == 'signupSuccess':#usersignup
-=======
-    if page_name == 'signupSuccess':
->>>>>>> e6b546acaef283be4e2134be4d266fca0efab27d
         try:
             result = request.form
             User.signup(result)
             return redirect(url_for('index'))
         except:
             return redirect(url_for('signupError'))
-<<<<<<< HEAD
    # el
 
     return render_template('%s.html' % page_name)
 
 
-=======
-
-    return render_template('%s.html' % page_name)
-
->>>>>>> e6b546acaef283be4e2134be4d266fca0efab27d
 @app.route('/signupError')
 def signupError():
     return render_template('signupError.html')

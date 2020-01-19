@@ -3,7 +3,6 @@ from hashlib import sha224
 
 from util import *
 
-<<<<<<< HEAD
 class Charity(dict):
     id = ""
     name = ""
@@ -67,8 +66,6 @@ class Charity(dict):
  
 
 
-=======
->>>>>>> e6b546acaef283be4e2134be4d266fca0efab27d
 class User(dict):
     """
     Basic user object
