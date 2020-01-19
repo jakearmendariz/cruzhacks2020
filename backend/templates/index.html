@@ -131,13 +131,14 @@
 
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter=".filter-edu, .filter-env, .filter-health, .filter-hcr, .filter-rpp"
-                class="filter-active">All</li>
-              <li data-filter=".filter-edu">Education</li>
-              <li data-filter=".filter-env">Environment</li>
-              <li data-filter=".filter-health">Health</li>
-              <li data-filter=".filter-hcr">Human and Civil Rights</li>
-              <li data-filter=".filter-rpp">Research & Public Policy</li>
+              <li data-filter=".Health, .Humaniatian, .Global, .Animals, .Current, .Research" class="filter-active">All
+              </li>
+              <li data-filter=".Humanitarian">Humanitarian</li>
+              <li data-filter=".Research">Research</li>
+              <li data-filter=".Health,,">Health</li>
+              <li data-filter=".Global">Global</li>
+              <li data-filter=".Animals">Animals</li>
+              <li data-filter=".Current">Current</li>
             </ul>
           </div>
         </div>
@@ -145,10 +146,10 @@
         <div class="row" id="portfolio-wrapper">
 
           {% for item in items %}
-          <div class="col-lg-3 col-md-6 portfolio-item filter-edu">
+          <div class="col-lg-3 col-md-6 portfolio-item {{item['type']}}">
             <a href="/charity/{{item['name']}}">
               <!-- Make sure to add in + for spaces-->
-              <img src="{{item['img']}}" alt="" style="width: 300px; display:block;margin:auto;">
+              <img src="{{item['img']}}" alt="" style="width: 100%; display:block;margin:auto;">
               <div class="details">
                 <h4>{{item['name']}}</h4>
                 <span>{{item['type']}}</span>
