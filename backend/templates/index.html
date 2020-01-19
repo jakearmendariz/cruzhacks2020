@@ -3,38 +3,30 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Chairty Cloud</title>
+  <title>Charity Cloud</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
   <link href="../static/img/favicon.png" rel="icon">
-  <link href="{{ url_for('static',filename='styles/style.css') }} rel=" icon">
   <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
     rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../static/lib/animate/animate.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">-->
-  <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/bootstrap/css/bootstrap.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/bootstrap/css/bootstrap.min') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/animate/animate.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/animate/animate.min.css') }}">
-  <script src="{{url_for('.static', filename='lib/boojs/main.js')}}"></script>
-  <script src="{{url_for('.static', filename='lib/jquery/jquery-migrate.min.js')}}"></script>
-  <script src="{{url_for('.static', filename='lib/jquery/jquery.min.js')}}"></script>
+  <link href="../static/css/style.css" rel="stylesheet">
+
   <!-- =======================================================
     Theme Name: Regna
     Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
@@ -52,13 +44,12 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img src="img/log.png" alt="" title="" /></img></a>
+        <a href="#hero"><img src="../static/img/transparent.png" alt="" title="" height=45px /></img></a>
         <!-- Uncomment below if you prefer to use a text logo -->
-        <!-- <h1><a href="#hero">Charity Cloud</a></h1> -->
+        <!--<h1><a href="#hero">Charity Cloud</a></h1>-->
       </div>
 
-      <nav id="nav-menu-container"
-        style="background-color:rgba(0, 0, 0, 0.3); padding:10px;padding-right:30px;padding-left:30px; border-radius: 10px;">
+      <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Home</a></li>
           <li><a href="#about">About Us</a></li>
@@ -83,7 +74,6 @@
             </ul>
           </li>
           <li><a href="/login">Login</a></li>
-          <li><a href="/addCharity">Add Charity</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -96,33 +86,10 @@
   <section id="hero">
     <div class="hero-container">
       <h1>Welcome to Charity Cloud</h1>
-      <!-- <a href="#about" class="btn-get-started">Get Started</a> -->
-      <header class="masthead text-white text-center">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-9 mx-auto">
-              <!-- <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1> -->
-              <h2>Here to help you help others</h2>
-            </div>
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-              <form>
-                <div class="form-row">
-                  <div class="col-12 col-md-9 mb-2 mb-md-0">
-                    <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-                  </div>
-                  <div class="col-12 col-md-3">
-                    <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </header>
+      <h2>Find the charities most striking to you</h2>
+      <a href="#about" class="btn-get-started">Get Started</a>
     </div>
   </section><!-- #hero -->
-
 
   <main id="main">
 
@@ -134,60 +101,210 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">What do we do</h2>
+            <h2 class="title">What we do</h2>
             <p>
               We are a platform for finding relevant and impactful charities to donate/contribute to. We want to help
               charities reach a wider audience by giving them a larger platform to be seen.
             </p>
 
             <div class="icon-box wow fadeInUp">
-              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Help someone in need</a></h4>
-              <p class="description">Use our site to find relevant ways that you can help others, please look through
-                our charities list and make a donation.</p>
+              <div class="icon"><i class='fas fa-microscope'></i></div>
+              <h4 class="title"><a href="">Charaties You Can Trust</a></h4>
+              <p class="description">We accept credible organizations only after rigorous inspection and verification.
+              </p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">See The Impact</a></h4>
-              <p class="description">We connect to charities social media sites so you can see what their mission is and
-                how your money is helping people.</p>
+              <div class="icon"><i class="fa fa-map-marker"></i></div>
+              <h4 class="title"><a href="">Narrow Your Search</a></h4>
+              <p class="description">Users can choose their desired organization, project, and method of help.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Give a little, help a lot</a></h4>
-              <p class="description">Give a little everymonth, connect your card and continue giving to a cause that you
-                believe in.</p>
+              <div class="icon"><i class="fas fa-donate"></i></div>
+              <h4 class="title"><a href="">Not-For-Profit</a></h4>
+              <p class="description">Organizations will receive 100% of donations. We will not take a cut of the
+                donations.</p>
             </div>
 
           </div>
 
-          <div></div>
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
         </div>
 
       </div>
     </section><!-- #about -->
 
     <!--==========================
+      Charities Section
+    ============================-->
+    <section id="portfolio">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Charities</h3>
+          <p class="section-description">Find the charities you most passionately want to support</p>
+        </div>
+        <div class="row">
+
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter=".filter-edu, .filter-env, .filter-health, .filter-hcr, .filter-rpp"
+                class="filter-active">All</li>
+              <li data-filter=".filter-edu">Education</li>
+              <li data-filter=".filter-env">Environment</li>
+              <li data-filter=".filter-health">Health</li>
+              <li data-filter=".filter-hcr">Human and Civil Rights</li>
+              <li data-filter=".filter-rpp">Research & Public Policy</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row" id="portfolio-wrapper">
+          <div class="col-lg-3 col-md-6 portfolio-item filter-edu">
+            <a href="">
+              <img src="../static/img/portfolio/app1.jpg" alt="">
+              <div class="details">
+                <h4>App 1</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-env">
+            <a href="">
+              <img src="../static/img/portfolio/web2.jpg" alt="">
+              <div class="details">
+                <h4>Web 2</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-health">
+            <a href="">
+              <img src="../static/img/portfolio/app3.jpg" alt="">
+              <div class="details">
+                <h4>App 3</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-hcr">
+            <a href="">
+              <img src="../static/img/portfolio/card1.jpg" alt="">
+              <div class="details">
+                <h4>Card 1</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-hcr">
+            <a href="">
+              <img src="../static/img/portfolio/card2.jpg" alt="">
+              <div class="details">
+                <h4>Card 2</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-rpp">
+            <a href="">
+              <img src="../static/img/portfolio/web3.jpg" alt="">
+              <div class="details">
+                <h4>Web 3</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-rpp">
+            <a href="">
+              <img src="../static/img/portfolio/card3.jpg" alt="">
+              <div class="details">
+                <h4>Card 3</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-hcr">
+            <a href="">
+              <img src="../static/img/portfolio/app2.jpg" alt="">
+              <div class="details">
+                <h4>App 2</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-health">
+            <a href="">
+              <img src="../static/img/portfolio/logo1.jpg" alt="">
+              <div class="details">
+                <h4>Logo 1</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-health">
+            <a href="">
+              <img src="../static/img/portfolio/logo3.jpg" alt="">
+              <div class="details">
+                <h4>Logo 3</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+            <a href="">
+              <img src="../static/img/portfolio/web1.jpg" alt="">
+              <div class="details">
+                <h4>Web 1</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 portfolio-item filter-rpp">
+            <a href="">
+              <img src="../static/img/portfolio/logo2.jpg" alt="">
+              <div class="details">
+                <h4>Logo 2</h4>
+                <span>Alored dono par</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+    <!--==========================
       Facts Section
-    ============================
+    ============================-->
     <section id="facts">
       <div class="container wow fadeIn">
         <div class="section-header">
           <h3 class="section-title">Facts</h3>
-          <p class="section-description">Make a difference</p>
+          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+            doloremque</p>
         </div>
         <div class="row counters">
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">42</span>
-            <p>We represent WorldWide</p>
+            <span data-toggle="counter-up">232</span>
+            <p>Clients</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">410</span>
-            <p>Billion Dollars given to charity last year</p>
+            <span data-toggle="counter-up">521</span>
+            <p>Projects</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
@@ -203,8 +320,8 @@
         </div>
 
       </div>
-      
-    </section> #facts -->
+    </section><!-- #facts -->
+
 
     <!--==========================
       Services Section
@@ -291,153 +408,6 @@
       </div>
     </section><!-- #call-to-action -->
 
-    <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio">
-      <div class="container wow fadeInUp">
-        <div class="section-header">
-          <h3 class="section-title">Charities</h3>
-          <p class="section-description">Discover new charities, find a new way to help</p>
-        </div>
-        <div class="row">
-
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-logo">Logo</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row" id="portfolio-wrapper">
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="/charity/fight+for+the+forgotten">
-              <img src="../static/img/flower.jpg" alt="">
-              <div class="details">
-                <h4>App 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="/charity/safe+porn">
-              <img src="../static/img/portfolio/web2.jpg" alt="">
-              <div class="details">
-                <h4>Web 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="../static/img/portfolio/app3.jpg" alt="">
-              <div class="details">
-                <h4>App 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="../static/img/portfolio/card1.jpg" alt="">
-              <div class="details">
-                <h4>Card 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="../static/img/portfolio/card2.jpg" alt="">
-              <div class="details">
-                <h4>Card 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="../static/img/portfolio/web3.jpg" alt="">
-              <div class="details">
-                <h4>Web 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="../static/img/portfolio/card3.jpg" alt="">
-              <div class="details">
-                <h4>Card 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="../static/img/portfolio/app2.jpg" alt="">
-              <div class="details">
-                <h4>App 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="../static/img/portfolio/logo1.jpg" alt="">
-              <div class="details">
-                <h4>Logo 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="../static/img/portfolio/logo3.jpg" alt="">
-              <div class="details">
-                <h4>Logo 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="../static/img/portfolio/web1.jpg" alt="">
-              <div class="details">
-                <h4>Web 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="../static/img/portfolio/logo2.jpg" alt="">
-              <div class="details">
-                <h4>Logo 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #portfolio -->
 
     <!--==========================
       Team Section
@@ -446,15 +416,14 @@
       <div class="container wow fadeInUp">
         <div class="section-header">
           <h3 class="section-title">Team</h3>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque</p>
+          <p class="section-description">A little bit about us!</p>
         </div>
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="member">
-              <div class="pic"><img src="../static/img/team-1.jpg" alt=""></div>
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
+              <div class="pic"><img src="../static/img/Jake.jpg" alt=""></div>
+              <h4>Jake Armendariz</h4>
+              <span>Back End</span>
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
@@ -466,9 +435,9 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member">
-              <div class="pic"><img src="../static/img/team-2.jpg" alt=""></div>
-              <h4>Sarah Jhinson</h4>
-              <span>Product Manager</span>
+              <div class="pic"><img src="../static/img/Sam.jpg" alt=""></div>
+              <h4>Samuel Schmidt</h4>
+              <span>Back End</span>
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
@@ -480,9 +449,9 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member">
-              <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-              <h4>William Anderson</h4>
-              <span>CTO</span>
+              <div class="pic"><img src="../static/img/eddie.jpg" alt=""></div>
+              <h4>Eddie Chan</h4>
+              <span>Front End</span>
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
@@ -494,9 +463,23 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member">
-              <div class="pic"><img src="../static/img/team-4.jpg" alt=""></div>
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
+              <div class="pic"><img src="../static/img/Rishika.jpg" alt=""></div>
+              <h4>Rishika Patel</h4>
+              <span>Front End</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="../static/img/Selina.jpg" alt=""></div>
+              <h4>Selina Guan</h4>
+              <span>Front End</span>
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
@@ -517,13 +500,13 @@
       <div class="container wow fadeInUp">
         <div class="section-header">
           <h3 class="section-title">Contact</h3>
-          <p class="section-description">We are a group of students participating in a hackathon</p>
+          <p class="section-description">Contact us with any questions or concerns</p>
         </div>
       </div>
 
       <!-- Uncomment below if you wan to use dynamic maps -->
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.5380065425256!2d-122.0544417844192!3d36.996959464298186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e4131796034c3%3A0x53d096e9870c08a3!2sStevenson%20Event%20Center!5e0!3m2!1sen!2sus!4v1579373586273!5m2!1sen!2sus"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452"
         width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
 
       <div class="container wow fadeInUp mt-5">
@@ -534,7 +517,7 @@
             <div class="info">
               <div>
                 <i class="fa fa-map-marker"></i>
-                <p>Stevenson Event Center<br>Santa Cruz, CA 95064</p>
+                <p>A108 Adam Street<br>New York, NY 535022</p>
               </div>
 
               <div>
@@ -635,10 +618,10 @@
   <script src="../static/lib/superfish/superfish.min.js"></script>
 
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="../static/contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="../static/js/main.js"></script>
 
 </body>
 
