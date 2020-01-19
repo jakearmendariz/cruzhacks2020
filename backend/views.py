@@ -25,7 +25,8 @@ def renderPosts(page_name):
         result = request.form
         user = User.createFromDict(result)
         user.dbInsert()
-        return render_template("%s.html" % page_name, result=result)
+        # TODO: add session information
+        return render_template("index.html")
 
     return render_template('%s.html' % page_name)
 

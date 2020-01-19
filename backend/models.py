@@ -1,7 +1,7 @@
 from app import mongo
 from hashlib import sha224
 
-class User(dict):
+class User():
     """
     Basic user object
     """
@@ -31,13 +31,15 @@ class User(dict):
     # simply return the response of the created login
     def dbInsert(self):
         return mongo.db.User.insert_one({
+            'id': self.id,
             'name': self.name,
             'email': self.email,
             'passwordHash': self.passwordHash
         })
 
-    # read in the response 
+    # read in the response
     def dbRead(self):
+        # TODO: Samuel Schmidt implement this for logging in        
         pass
 
     # update the existing user
@@ -47,3 +49,5 @@ class User(dict):
     # delete a user
     def dbDelete(self):
         pass
+
+
