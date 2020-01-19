@@ -85,7 +85,15 @@ def signupError():
 def render_static(page_name):
     return render_template('%s.html' % page_name)
  
+@app.route('/box')
+def box_index():
+    _items = mongo.db.Charity.find() #This is an array, we have to pass this to the function
+    return render_template('box.html', items = _items)
+#    return 'Hello world'
+#    return render_template('box.html', items = _items)
+ 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    _items = mongo.db.Charity.find() #This is an array, we have to pass this to the function
+    return render_template('index.html', items = _items)
   
