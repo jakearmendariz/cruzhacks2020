@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add Your Charity</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/loginfonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/loginfonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/logincss/util.css">
+    <link rel="stylesheet" type="text/css" href="../static/logincss/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+    <br> <a href="/">&emsp; <u>back</a></u>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                <form class="login100-form validate-form flex-sb flex-w" action='/addSuccess/' method='POST'
+                    style="font-family:'Ubuntu', sans-serif;">
+                    <span class="login100-form-title p-b-51"
+                        style="font-family:'Ubuntu', sans-serif;font-weight: 1500;">
+                        <strong>Add Your Charity</strong>
+
+                    </span>
+
+                    <p>{{ exception }}</p>
+
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input class="input100" type="text" name="name" placeholder="Name"
+                            style="font-family:'Ubuntu', sans-serif;">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                        <input class="input100" type="text" name="email" placeholder="Email"
+                            style="font-family:'Ubuntu', sans-serif;">
+
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                        <input class="input100" type="password" name="pass" placeholder="Password"
+                            style="font-family:'Ubuntu', sans-serif;">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input class="input100" type="text" name="website" placeholder="Website"
+                            style="font-family:'Ubuntu', sans-serif;">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Image is required">
+                        <input class="input100" type="text" name="img" placeholder="Link to an image on the web"
+                            style="font-family:'Ubuntu', sans-serif;">
+                        <span class="focus-input100"></span>
+
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Image is required">
+                        <select style="width:100%;" name="type">
+                            <option value="Humanitarian">Humanitarian</option>
+                            <option value="Health">Health</option>
+                            <option value="Animals">Animals</option>
+                            <option value="Research">Research</option>
+                            <option value="Global">Global</option>
+                            <option value="Education">Education</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Description is required"
+                        style="height:20vh">
+                        <textarea class="input100" type="text" name="description"
+                            placeholder="Add a charity description..."
+                            style="font-family:'Ubuntu', sans-serif;width:100%" rows="10" cols="50"></textarea>
+
+                    </div>
+
+                    <div class="flex-sb-m w-full p-t-3 p-b-24">
+                        <div style="font-family:'Ubuntu', sans-serif;">
+
+                            Already have a charity?
+                            <a href="/login" class="txt1" style="font-family:'Ubuntu', sans-serif;">
+                                Sign in
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" href="/index" type="submit"
+                            style="font-family:'Ubuntu', sans-serif;">
+                            Sign Up
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

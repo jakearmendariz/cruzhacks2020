@@ -1,25 +1,17 @@
+# main app sequence, how it's going to start
+
 from flask import Flask
 from flask_pymongo import PyMongo
+from os import environ
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
+app.secret_key = "6130559920e1b0777167e23c1420856c914ae5b8"
+
+app.config.from_pyfile('config.py')
 mongo = PyMongo(app)
 
+from views import *
+from models import *
 
-@app.route("/")
-def home_page():
-    online_users = mongo.db.users.find({"online": True})
-    return render_template("index.html",
-                           online_users=online_users)
-
-
-class flask_pymongo.PyMongo(app=None, uri=None, *args, **kwargs):
-    init_app(app, uri=None, *args, **kwargs)
-
-
-db.auth({
-    user: "JakeArmendariz99@gmail.com",
-    pwd: passwordPrompt(), 
-    mechanism: < authentication mechanism > ,
-    digestPassword: < boolean >
-})
+if __name__ == '__main__':
+    app.run()

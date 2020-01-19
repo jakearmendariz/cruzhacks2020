@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Charity Cloud</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../static/lib/animate/animate.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Regna
+    Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="#hero"><img src="../static/img/transparent.png" alt="" title="" height=45px /></img></a>
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!--<h1><a href="#hero">Charity Cloud</a></h1>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="#about">Mission</a></li>
+          <li><a href="#portfolio">Charities</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="/login">{{ value }}</a></li>
+          <li><a href="/addCharity">Add Charity</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Hero Section
+  ============================-->
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Welcome to Charity Cloud</h1>
+      <h2>We help you help others</h2>
+      <a href="#about" class="btn-get-started">Get Started</a>
+    </div>
+  </section><!-- #hero -->
+
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <h2 class="title">What we do</h2>
+            <p>
+              We are a platform for finding relevant and impactful charities to donate/contribute to. We want to help
+              charities reach a wider audience by giving them a larger platform to be seen.
+            </p>
+
+            <div class="icon-box wow fadeInUp">
+              <div class="icon"><i class='fas fa-microscope'></i></div>
+              <h4 class="title"><a href="">Charities You Can Trust</a></h4>
+              <p class="description">We accept credible organizations only after rigorous inspection and verification.
+              </p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-map-marker"></i></div>
+              <h4 class="title"><a href="">Narrow Your Search</a></h4>
+              <p class="description">Users can choose their desired organization, project, and method of help.</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fas fa-donate"></i></div>
+              <h4 class="title"><a href="">Not-For-Profit</a></h4>
+              <p class="description">Organizations will receive 100% of donations. We will not take a cut of the
+                donations.</p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+        </div>
+
+      </div>
+    </section><!-- #about -->
+
+    <!--==========================
+      Charities Section
+    ============================-->
+    <section id="portfolio">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Charities</h3>
+          <p class="section-description">Find the charities you most passionately want to support</p>
+        </div>
+        <div class="row">
+
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter=".Health, .Humanitarian, .Global, .Animals, .Education, .Research, .Other "
+                class="filter-active">
+                All
+              </li>
+              <li data-filter=".Humanitarian">Humanitarian</li>
+              <li data-filter=".Research">Research</li>
+              <li data-filter=".Health">Health</li>
+              <li data-filter=".Global">Global</li>
+              <li data-filter=".Animals">Animals</li>
+              <li data-filter=".Education">Education</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row" id="portfolio-wrapper">
+
+          {% for item in items %}
+          <div class="col-lg-3 col-md-6 portfolio-item {{item['type']}}">
+            <a href="/charity/{{item['name']}}">
+              <!-- Make sure to add in + for spaces-->
+              <img src="{{item['img']}}" alt="" style="width: 120%; display:block;margin:auto;">
+              <div class="details">
+                <h4>{{item['name']}}</h4>
+                <span>{{item['type']}}</span>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+
+    <!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">Stats</h3>
+          <p class="section-description">The impact of donations is better understood through raw statistics</p>
+        </div>
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">69</span>
+            <p>% of the population has donated</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">410.02</span>
+            <p>billion dollars were donated to charities in 2017</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">31</span>
+            <p>billion dollars were raised through online giving</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">4.1</span>
+            <p>% growth of giving happened over the past year(making 6th consecutive year of growth!)</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #facts -->
+
+
+
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">Categories of Charities</h3>
+          <p class="section-description">Select which organizations to support by exploring the various categories</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-graduation-cap"></i></a></div>
+              <h4 class="title"><a href="">Education</a></h4>
+              <p class="description">These charaties create educational oppportunities for areas where quality education
+                may be scarce, transforming the futures of underpriveldged people.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-leaf"></i></a></div>
+              <h4 class="title"><a href="">Environment</a></h4>
+              <p class="description">These charities focus their efforts on restoring damaged natural systems which
+                humans rely on, consequently preserving natural beauty. </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-stethoscope"></i></a></div>
+              <h4 class="title"><a href="">Health</a></h4>
+              <p class="description">The main purpose of these charities is to take action towards improving health and
+                wellbeing across the globe, including those affected by various outbreaks and diseases.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-paw"></i></a></div>
+              <h4 class="title"><a href="">Animals</a></h4>
+              <p class="description">Animal charities are classified by the organizations that have been established to
+                improve global welfare standards for animals.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-globe"></i></a></div>
+              <h4 class="title"><a href="">Global</a></h4>
+              <p class="description">Charities in this category help those effected by various foriegn problems,
+                including the aid those fleeing persecution and helping countries hit by devastating situations.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-heart"></i></a></div>
+              <h4 class="title"><a href="">Humanitarian</a></h4>
+              <p class="description">Humanitarian charities are categorized by those that take innnovative approaches to
+                human rights problems regardless of borders.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+    Call To Action Section
+    ============================-->
+    <section id="call-to-action">
+      <div class="container wow fadeIn">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">Call To Action</h3>
+            <p class="cta-text"> Take the first step towards becoming a more wordly-invovled individual and be an
+              addition to this group of informed givers. Join the Charity Cloud</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="/signup">Sign Up</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #call-to-action -->
+
+
+    <!--==========================
+      Team Section
+    ============================-->
+    <section id="team">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Team</h3>
+          <p class="section-description">A little bit about us!</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="../static/img/Jake.jpg" alt=""></div>
+              <h4>Jake Armendariz</h4>
+              <span>Back End</span>
+              <div class="social">
+                <a href="https://github.com/jakearmendariz"><i class="fa fa-github"></i></a>
+                <a href="https://jakearmendariz.com/"><i class="fa fa-link"></i></a>
+                <a href="https://www.linkedin.com/in/jake-armendariz/"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="../static/img/Sam.jpg" alt=""></div>
+              <h4>Samuel Schmidt</h4>
+              <span>Back End</span>
+              <div class="social">
+                <a href="https://github.com/tdimhcsleumas"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/samuel-schmidt-67977a179/"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="../static/img/eddie.jpg" alt=""></div>
+              <h4>Eddie Chan</h4>
+              <span>Front End</span>
+              <div class="social">
+                <a href="https://github.com/eddiechan0209"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/edwardcychan/"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="../static/img/Rishika.jpg" alt=""></div>
+              <h4>Rishika Patel</h4>
+              <span>Front End</span>
+              <div class="social">
+                <a href="https://github.com/rishikapatel"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/rishika-patel1/"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="../static/img/Selina.jpg" alt=""></div>
+              <h4>Selina Guan</h4>
+              <span>Front End</span>
+              <div class="social">
+                <a href="https://github.com/seguan"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/selina-guan/"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #team -->
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Contact</h3>
+          <p class="section-description">Contact us with any questions or concerns</p>
+        </div>
+      </div>
+
+      <!-- Uncomment below if you wan to use dynamic maps -->
+      <iframe
+        src="
+        https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.5380065425256!2d-122.0544417844192!3d36.996959464298186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e4131796034c3%3A0x53d096e9870c08a3!2sStevenson%20Event%20Center!5e0!3m2!1sen!2sus!4v1579442672589!5m2!1sen!2sus"
+        width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+      <div class="container wow fadeInUp mt-5">
+        <div class="row justify-content-center">
+
+          <div class="col-lg-3 col-md-4">
+
+            <div class="info">
+              <div>
+                <i class="fa fa-map-marker"></i>
+                <p>Stevenson Event Center<br>Santa Cruz, CA 95064</p>
+              </div>
+
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p>jsarmend@ucsc.edu</p>
+              </div>
+
+              <div>
+                <i class="fa fa-phone"></i>
+                <p>+1 5589 55488 55s</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <div class="form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="" method="post" role="form" class="contactForm">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                    data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required"
+                    data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Charity Cloud</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
+        -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="../static/lib/jquery/jquery.min.js"></script>
+  <script src="../static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/lib/easing/easing.min.js"></script>
+  <script src="../static/lib/wow/wow.min.js"></script>
+  <script src="../static/lib/waypoints/waypoints.min.js"></script>
+  <script src="../static/lib/counterup/counterup.min.js"></script>
+  <script src="../static/lib/superfish/hoverIntent.js"></script>
+  <script src="../static/lib/superfish/superfish.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="../static/contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
