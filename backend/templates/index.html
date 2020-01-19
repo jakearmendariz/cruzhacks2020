@@ -131,14 +131,16 @@
 
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter=".Health, .Humaniatian, .Global, .Animals, .Current, .Research" class="filter-active">All
+              <li data-filter=".Health, .Humanitarian, .Global, .Animals, .Education, .Research, .Other "
+                class="filter-active">
+                All
               </li>
               <li data-filter=".Humanitarian">Humanitarian</li>
               <li data-filter=".Research">Research</li>
-              <li data-filter=".Health,,">Health</li>
+              <li data-filter=".Health">Health</li>
               <li data-filter=".Global">Global</li>
               <li data-filter=".Animals">Animals</li>
-              <li data-filter=".Current">Current</li>
+              <li data-filter=".Education">Education</li>
             </ul>
           </div>
         </div>
@@ -149,7 +151,7 @@
           <div class="col-lg-3 col-md-6 portfolio-item {{item['type']}}">
             <a href="/charity/{{item['name']}}">
               <!-- Make sure to add in + for spaces-->
-              <img src="{{item['img']}}" alt="" style="width: 100%; display:block;margin:auto;">
+              <img src="{{item['img']}}" alt="" style="width: 120%; display:block;margin:auto;">
               <div class="details">
                 <h4>{{item['name']}}</h4>
                 <span>{{item['type']}}</span>
