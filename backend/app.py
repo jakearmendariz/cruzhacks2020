@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 from os import environ
 
 app = Flask(__name__)
+app.secret_key = "6130559920e1b0777167e23c1420856c914ae5b8"
 
 app.config.from_pyfile('config.py')
 mongo = PyMongo(app)
