@@ -3,7 +3,7 @@
 from app import app
 from models import *
 from forms import *
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextField, SubmitField
@@ -22,12 +22,18 @@ from wtforms.validators import DataRequired, Length
 def renderPosts(page_name):
 
     if page_name == 'signupSuccess':
-        result = request.form
-        user = User.createFromDict(result)
-        user.dbInsert()
-        return render_template("%s.html" % page_name, result=result)
+        try:
+            result = request.form
+            User.signup(result)
+            return redirect(url_for('index'))
+        except:
+            return redirect(url_for('signupError'))
 
     return render_template('%s.html' % page_name)
+
+@app.route('/signupError')
+def signupError():
+    return render_template('signupError.html')
 
 @app.route('/<string:page_name>/', methods=['GET'])
 def renderGets(page_name):
