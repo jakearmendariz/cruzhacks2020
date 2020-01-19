@@ -2,29 +2,40 @@
 
 from app import app
 from models import *
-from flask import Flask, render_template
+from forms import *
+from flask import Flask, render_template, request
 
-@app.route('/result', methods=['POST'])
-def createUser():
-    name = request.form['name']
-    username = request.form['username']
-    password = request.form['password']
-    user = User(name, username, password)
-    user.create()
-    print("FUCK SOCIETY AND THEIR GODDAM RULES")
-    return name
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextField, SubmitField
+from wtforms.validators import DataRequired, Length
 
-# have the mother fucking frontend redirect to this url and the get inserted into the db
+#@app.route('/result', methods=['POST'])
+#def createUser():
+#    name = request.form['name']
+#    username = request.form['username']
+#    password = request.form['password']
+#    user = User(name, username, password)
+#    user.create()
+#    return render_template("result.html")
+
+@app.route('/<string:page_name>/', methods=['POST'])
+def renderPosts(page_name):
+
+    if page_name == 'result':
+        result = request.form
+        user = User(result['name'],
+                    result['username'],
+                    result['pass'])
+        user.create()
+        return render_template("result.html", result=result)
+    return render_template('%s.html' % page_name)
+
 @app.route('/<string:page_name>/', methods=['GET'])
-def render_static(page_name):
+def renderGets(page_name):
     return render_template('%s.html' % page_name)
  
 @app.route('/')
 def index():
-    return render_template('index.html')
- 
-#@app.route('/')
-#def index():
-#    return '../templates/index.html'
+    return render_template("index.html") 
 
 

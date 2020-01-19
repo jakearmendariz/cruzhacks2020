@@ -34,7 +34,7 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
-                <form class="login100-form validate-form flex-sb flex-w" methods= "POST" action="http://localhost:5000/result">
+                <form class="login100-form validate-form flex-sb flex-w" method="POST" action="/result/">
                     <span class="login100-form-title p-b-51">
                         Sign Up
                     </span>
@@ -44,15 +44,7 @@
                     </div>
 
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Username is re@app.route('/signup/complete', methods=['POST'])
-                    def createUser():
-                        name = request.form['name']
-                        username = request.form['username']
-                        password = request.form['password']
-                        user = User(name, username, password)
-                        user.create()
-                        print("FUCK SOCIETY AND THEIR GODDAM RULES")
-                        return namequired">
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
                         <input class="input100" type="text" name="username" placeholder="Username">
                         <span class="focus-input100"></span>
                     </div>
