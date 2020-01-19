@@ -9,6 +9,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextField, SubmitField
 from wtforms.validators import DataRequired, Length
 
+from pymongo import errors
+
 #@app.route('/result', methods=['POST'])
 #def createUser():
 #    name = request.form['name']
@@ -39,25 +41,41 @@ def renderPosts(page_name):
         try:
             result = request.form
             charity = Charity(result.get('name').lower(),
-                              result.get('email'),
-                              result.get('website'),
-                              result.get('description'),
-                              result.get('img'),
-                              result.get('type'),
-                              result.get('pass'))
+                          result.get('email'),
+                          result.get('website'),
+                          result.get('description'),
+                          result.get('img'),
+                          result.get('type'),
+                          result.get('pass'))
+                          
             charity.dbInsert()
             return redirect(url_for('index'))
-    if page_name == 'signupSuccess':#usersignup
+        except errors.DuplicateKeyError:
+            return render_template('addCharity.html', exception = "Email already in use")
+
+    if page_name == 'signupSuccess':
         try:
             result = request.form
             User.signup(result)
             return redirect(url_for('index'))
+        except errors.DuplicateKeyError:
+            return render_template('signup.html', exception = "Email already in use")
+    if page_name == 'loginSuccess':
+        try:
+            result = request.form
+            User.login(result)
+            return redirect(url_for("index"))
+        except TypeError as issue:
+            return render_template("login.html", exception = "User does not exist")
+        except Exception as issue:
+            return render_template("login.html", exception = issue)
         except:
-            return redirect(url_for('signupError'))
-   # el
+            return render_template("loginError".html, exception = "I don't know")
+    return render_template('%s.html' % page_name) 
 
-    return render_template('%s.html' % page_name)
-
+@app.route('/loginError')
+def loginError():
+    return render_template('loginError.html')
 
 @app.route('/signupError')
 def signupError():

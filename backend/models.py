@@ -3,7 +3,9 @@ from hashlib import sha224
 
 from util import *
 
-class Charity(dict):
+import json
+
+class Charity(object):
     id = ""
     name = ""
     email = ""
@@ -72,7 +74,7 @@ class Charity(dict):
  
 
 
-class User(dict):
+class User(object):
     """
     Basic user object
     """
@@ -103,7 +105,17 @@ class User(dict):
     @staticmethod
     def signup(dict):
         user = User.createFromDict(dict)
-        user.dbInsert()
+        return user.dbInsert()
+
+    @staticmethod
+    def login(dict):
+        user = User("",
+                    dict.get('username'),
+                    dict.get('pass'))
+        userDict = user.dbRead()
+        if not verify_password(userDict['passwordHash'], dict.get('pass')):
+            raise Exception("Invalid password")
+        return userDict
     
 
     # simply return the response of the created login
@@ -112,12 +124,13 @@ class User(dict):
             "_id": self.id,
             'name': self.name,
             'email': self.email,
-            'passwordHash': (self.passwordHash).encode('utf-8')
+            'passwordHash': (self.passwordHash)
         })
 
     # read in the response 
     def dbRead(self):
-        pass
+        document = mongo.db.User.find_one({"_id": self.id})
+        return document
 
     # update the existing user
     def dbUpdate(self):
