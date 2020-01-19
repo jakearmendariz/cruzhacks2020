@@ -17,6 +17,8 @@ class Charity(dict):
                  email,
                  website,
                  description,
+                 img,
+                 charType,
                  passwordHash):#Add in image later
 
         self.id = sha224(email.encode('utf-8')).hexdigest() 
@@ -24,7 +26,8 @@ class Charity(dict):
         self.email = email
         self.website = website
         self.description = description
-        #self.img = img
+        self.img = img
+        self.type = charType
         self.password = hash_password(passwordHash)
     
       # create a new user from a dictionary
@@ -35,6 +38,7 @@ class Charity(dict):
                     dict['username'],
                     dict['website'],
                     dict['description'],
+                    dict['img'],
                     dict['pass'])
                     #dict['img'])
         return charity
@@ -47,6 +51,8 @@ class Charity(dict):
             'email': self.email,
             'website':self.website,
             'description':self.description,
+            'img': self.img,
+            'type': self.type,
             'passwordHash': self.password
             #'img':self.img
         })

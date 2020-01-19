@@ -24,30 +24,29 @@ def displayCharity(name):
     name = name.replace("+", " ")
     cursor = mongo.db.Charity.find_one_or_404({'name': name})
     name = name.title()
-    return f'''<h1>{name}</h1>
-                <h3>Find us at:{cursor['website']}</h3>
-                <p>{cursor['description']}</p>
-                <p>If you want to get involved. Email us at {cursor['email']}</p>
-                '''
-#    return f'''
-#        <h1>{cursor['name']}</h1>
-#        <p>{cursor['email']}</p>
-#        <p>{cursor['website']}</p>
-#        <p>Who are we?<br>{cursor['Description']}</p>
-#    '''
+    return render_template("charitybase.html", _name = name, _website = cursor['website'], _email = cursor['email'], _description = cursor['description'], _img = cursor['img'])
+#    return f'''<img src = "{cursor['img']}">
+#                <h1>{name}</h1>
+#                <h3>Find us at:{cursor['website']}</h3>
+ #               <p>{cursor['description']}</p>
+#                <p>If you want to get involved. Email us at {cursor['email']}</p>
+#                '''
 
 
 @app.route('/<string:page_name>/', methods=['POST'])
 def renderPosts(page_name):
     if page_name == 'addSuccess':
-        result = request.form
-        charity = Charity(result.get('name').lower(),
-                          result.get('email'),
-                          result.get('website'),
-                          result.get('description'),
-                          result.get('pass'))
-        charity.dbInsert()
-        return redirect(url_for('index'))
+        try:
+            result = request.form
+            charity = Charity(result.get('name').lower(),
+                              result.get('email'),
+                              result.get('website'),
+                              result.get('description'),
+                              result.get('img'),
+                              result.get('type'),
+                              result.get('pass'))
+            charity.dbInsert()
+            return redirect(url_for('index'))
     if page_name == 'signupSuccess':#usersignup
         try:
             result = request.form

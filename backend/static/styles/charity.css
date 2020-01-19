@@ -9,3 +9,18 @@ img {
     object-fit: cover;
 
 }
+
+
+.text {
+    margin: 5vmax;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: Ubuntu-Regular;
+    src: url('../loginfonts/ubuntu/Ubuntu-Regular.ttf');
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+h1 {
+    font-size: 5vmax;
+    color: purple
+}

@@ -1,15 +1,92 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <title>Chairty Cloud</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="../static/img/favicon.png" rel="icon">
+    <link href="{{ url_for('static',filename='styles/style.css') }} rel=" icon">
+    <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">-->
+    <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/bootstrap/css/bootstrap.min') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/animate/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/animate/animate.min.css') }}">
+    <script src="{{url_for('.static', filename='lib/boojs/main.js')}}"></script>
+    <script src="{{url_for('.static', filename='lib/jquery/jquery-migrate.min.js')}}"></script>
+    <script src="{{url_for('.static', filename='lib/jquery/jquery.min.js')}}"></script>
+
     <link rel="icon" type="image/png" href="../static/styles/charity.css" />
 </head>
 
 <body>
-    <img src="../static/img/flower.jpg" class="mainphoto" style="object-fit: cover; width: 100%; height: 400px;">
-    <h1>Charity Name</h1>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-        anim id est laborum.</p>
+    <header id="header">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <a href="#hero"><img src="img/log.png" alt="" title="" /></img></a>
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!-- <h1><a href="#hero">Charity Cloud</a></h1> -->
+            </div>
+
+            <nav id="nav-menu-container"
+                style="background-color:rgba(0, 0, 0, 0.3); padding:10px;padding-right:30px;padding-left:30px; border-radius: 10px;">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li class="menu-has-children"><a href="">Drop Down</a>
+                        <ul>
+                            <li><a href="#">Drop Down 1</a></li>
+                            <li class="menu-has-children"><a href="#">Drop Down 2</a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                            <li><a href="#">Drop Down 5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/addCharity">Add Charity</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <img src="{{_img}}" class="mainphoto" style="object-fit: cover; width: 100%; height: 400px;">
+    <div class="text">
+        <h1>{{_name}}</h1>
+        <p>{{_website}}</p>
+        <p>{{_description}}</p>
+        <p>If you would like to get involved please email us at: {{_email}}</p>
+    </div>
 </body>
 
 </html>
