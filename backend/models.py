@@ -3,6 +3,72 @@ from hashlib import sha224
 
 from util import *
 
+<<<<<<< HEAD
+class Charity(dict):
+    id = ""
+    name = ""
+    email = ""
+    password = ""
+    description = ""
+    #img 
+    website = ""
+    
+    def __init__(self,
+                 name,
+                 email,
+                 website,
+                 description,
+                 passwordHash):#Add in image later
+
+        self.id = sha224(email.encode('utf-8')).hexdigest() 
+        self.name = name
+        self.email = email
+        self.website = website
+        self.description = description
+        #self.img = img
+        self.password = hash_password(passwordHash)
+    
+      # create a new user from a dictionary
+    @staticmethod
+    def createFromDict(dict):
+        charity = Charity(
+                    dict['name'],
+                    dict['username'],
+                    dict['website'],
+                    dict['description'],
+                    dict['pass'])
+                    #dict['img'])
+        return charity
+
+    # simply return the response of the created login
+    def dbInsert(self):
+        return mongo.db.Charity.insert_one({
+            '_id': self.id,
+            'name': self.name,
+            'email': self.email,
+            'website':self.website,
+            'description':self.description,
+            'passwordHash': self.password
+            #'img':self.img
+        })
+    
+     # read in the response
+    def dbRead(self):
+        # TODO: Samuel Schmidt implement this for logging in        
+        pass
+
+    # update the existing user
+    def dbUpdate(self):
+        pass
+    
+    # delete a user
+    def dbDelete(self):
+        pass
+ 
+
+
+=======
+>>>>>>> e6b546acaef283be4e2134be4d266fca0efab27d
 class User(dict):
     """
     Basic user object
@@ -17,7 +83,7 @@ class User(dict):
                  email,
                  password):
 
-        self.id = sha224(email).hexdigest() 
+        self.id = sha224(email.encode('utf-8')).hexdigest() 
         self.name = name
         self.email = email
         self.passwordHash = hash_password(password)

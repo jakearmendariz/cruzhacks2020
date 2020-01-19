@@ -31,15 +31,14 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
-<<<<<<< HEAD
-                <h3>Account already exists with this email</h3>
-                <a href="/signup/">
-                    <h3>Return to signup</h3>
-                </a>
-=======
-            <h3>Account already exists with this email</h3>
-            <a href="/signup/"><h3>Return to signup</h3></a>
->>>>>>> e6b546acaef283be4e2134be4d266fca0efab27d
+                <table border=1>
+                    {% for key, value in result.items() %}
+                    <tr>
+                        <th> {{ key }} </th>
+                        <td> {{ value }} </td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>
