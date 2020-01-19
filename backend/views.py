@@ -1,6 +1,6 @@
 # views file where we control the views
 
-from app import app
+from app import app, mongo
 from models import *
 from forms import *
 from flask import Flask, render_template, request, url_for, redirect
