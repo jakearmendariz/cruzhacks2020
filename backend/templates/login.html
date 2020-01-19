@@ -36,12 +36,12 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
-                <form class="login100-form validate-form flex-sb flex-w">
+                <form class="login100-form validate-form flex-sb flex-w" action="/loginSuccess/" method="POST">
                     <span class="login100-form-title p-b-51" style="font-family:'Ubuntu', sans-serif;">
                         Login
                     </span>
 
-
+                    <p>{{ exception }}</p>
 
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
                         <input class="input100" type="text" name="username" placeholder="Email"
