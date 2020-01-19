@@ -1,5 +1,4 @@
 from app import mongo
-from hashlib import sha224
 
 from util import *
 
@@ -78,7 +77,6 @@ class User(object):
     """
     Basic user object
     """
-    id = ""
     name = ""
     email = ""
     passwordHash = ""
@@ -86,56 +84,28 @@ class User(object):
     def __init__(self,
                  name,
                  email,
-                 password):
+                 passwordHash):
 
-        self.id = sha224(email.encode('utf-8')).hexdigest() 
         self.name = name
         self.email = email
-        self.passwordHash = hash_password(password)
-
-    # create a new user from a dictionary
-    @staticmethod
-    def createFromDict(dict):
-        user = User(dict['name'],
-                    dict['username'],
-                    dict['pass'])
-        return user
-
-    # signup a user
-    @staticmethod
-    def signup(dict):
-        user = User.createFromDict(dict)
-        return user.dbInsert()
-
-    @staticmethod
-    def login(dict):
-        user = User("",
-                    dict.get('username'),
-                    dict.get('pass'))
-        userDict = user.dbRead()
-        if not verify_password(userDict['passwordHash'], dict.get('pass')):
-            raise Exception("Invalid password")
-        return userDict
-    
+        self.passwordHash = passwordHash
 
     # simply return the response of the created login
-    def dbInsert(self):
+    def create(self):
         return mongo.db.User.insert_one({
-            "_id": self.id,
             'name': self.name,
             'email': self.email,
-            'passwordHash': (self.passwordHash)
+            'passwordHash': self.passwordHash
         })
 
     # read in the response 
-    def dbRead(self):
-        document = mongo.db.User.find_one({"_id": self.id})
-        return document
+    def read(self):
+        pass
 
     # update the existing user
-    def dbUpdate(self):
+    def update(self):
         pass
     
     # delete a user
-    def dbDelete(self):
+    def delete(self):
         pass

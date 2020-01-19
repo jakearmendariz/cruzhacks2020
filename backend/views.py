@@ -1,6 +1,6 @@
 # views file where we control the views
 
-from app import app, mongo
+from app import app
 from models import *
 from forms import *
 from flask import Flask, render_template, request, url_for, redirect
@@ -82,9 +82,10 @@ def signupError():
     return render_template('signupError.html')
 
 @app.route('/<string:page_name>/', methods=['GET'])
-def renderGets(page_name):
+def render_static(page_name):
     return render_template('%s.html' % page_name)
  
 @app.route('/')
 def index():
-    return render_template("index.html") 
+    return render_template('index.html')
+  
