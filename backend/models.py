@@ -1,9 +1,11 @@
 from app import mongo
+from hashlib import sha224
 
 class User(dict):
     """
     Basic user object
     """
+    id = ""
     name = ""
     email = ""
     passwordHash = ""
@@ -13,12 +15,21 @@ class User(dict):
                  email,
                  passwordHash):
 
+        self.id = sha224(email).hexdigest() 
         self.name = name
         self.email = email
         self.passwordHash = passwordHash
 
+    # create a new user from a dictionary
+    @staticmethod
+    def createFromDict(dict):
+        user = User(dict['name'],
+                    dict['username'],
+                    dict['pass'])
+        return user
+
     # simply return the response of the created login
-    def create(self):
+    def dbInsert(self):
         return mongo.db.User.insert_one({
             'name': self.name,
             'email': self.email,
@@ -26,13 +37,13 @@ class User(dict):
         })
 
     # read in the response 
-    def read(self):
+    def dbRead(self):
         pass
 
     # update the existing user
-    def update(self):
+    def dbUpdate(self):
         pass
     
     # delete a user
-    def delete(self):
+    def dbDelete(self):
         pass

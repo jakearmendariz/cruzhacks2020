@@ -21,13 +21,12 @@ from wtforms.validators import DataRequired, Length
 @app.route('/<string:page_name>/', methods=['POST'])
 def renderPosts(page_name):
 
-    if page_name == 'result':
+    if page_name == 'signupSuccess':
         result = request.form
-        user = User(result['name'],
-                    result['username'],
-                    result['pass'])
-        user.create()
-        return render_template("result.html", result=result)
+        user = User.createFromDict(result)
+        user.dbInsert()
+        return render_template("%s.html" % page_name, result=result)
+
     return render_template('%s.html' % page_name)
 
 @app.route('/<string:page_name>/', methods=['GET'])
